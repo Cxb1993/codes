@@ -1,0 +1,138 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2016.12.13}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}          % for color eps output
+
+\begin{document}
+\maketitle \section*{Numerical differentiation using arrays for the first
+derivative}
+Arrays were utilized in an algorithm coded in C++ for numerical differentiation
+using three different commonly used schemes. The function sin$(3x)$ was
+differentiated using forward difference, backward difference and central
+difference methods.
+
+\subsection*{Forward difference method}
+\begin{equation}
+f^\prime(x) = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i}
+\end{equation}
+
+\subsection*{Backward difference method}
+\begin{equation}
+f^\prime(x) = \frac{f(x_i)-f(x_{i-1})}{x_i-x_{i-1}}
+\end{equation}
+
+\subsection*{Central difference method}
+\begin{equation}
+f^\prime(x) = \frac{f(x_{i+1})-f(x_{i-1})}{x_{i+1}-x_{i-1}}
+\end{equation}
+
+The results are shown in the figures below.
+
+\begin{figure}[p!]
+\centering
+\input{firstsin10}
+\caption{Comparison of numerical differentiation of sin$(3x)$ using 10 intervals
+for the first derivative}
+\end{figure}
+\begin{figure}[p!]
+\centering
+\input{firstsin100}
+\caption{Comparison of numerical differentiation of sin$(3x)$ using 100
+intervals for the first derivative}
+\end{figure}
+
+\section*{Numerical differentiation using arrays for the second
+derivative}
+C++ arrays were also used for numerical differentation of the second
+derivative using schemes similar to those for first derivative. The function
+sin$(3x)$ was differentiated twice using forward difference, backward difference
+and central difference methods.
+
+\subsection*{Forward difference method for second derivative}
+\begin{equation}
+f''(x) = \frac{f(x_{i+2})-2f(x_{i+1})+f(x_i)}{h^2}
+\end{equation}
+
+\subsection*{Backward difference method for second derivative}
+\begin{equation}
+f''(x) = \frac{f(x_i)-2f(x_{i-1})+f(x_{i-2})}{h^2}
+\end{equation}
+
+\subsection*{Central difference method for second derivative}
+\begin{equation}
+f''(x) = \frac{f(x_{i+1})-2f(x)+f(x_{i-1})}{h^2}
+\end{equation}
+
+The results for the second derivative are shown in the figures below.
+\begin{figure}[p!]
+\centering
+\input{secondsin10}
+\caption{Comparison of numerical differentiation of second derivative
+of sin$(3x)$ using 10 intervals}
+\end{figure}
+\begin{figure}[p!]
+\centering
+\input{secondsin100}
+\caption{Comparison of numerical differentiation of second derivative
+of sin$(3x)$ using 100 intervals}
+\end{figure}
+
+\newpage
+\section*{Determination of error for for first and second derivatives}
+The error for calculation of the first derivative was determined for
+each of the three differnt methods using the following formula:
+\begin{equation}
+E = \sqrt{\frac{\sum\limits_{i=1}^{N}\left(\frac{A_N-A_a}{A_a}\right)^2}{N}}
+\end{equation}
+The calculations were performed for intervals starting from 10 to 10,000 over
+the range 0 to $pi$. The plots are shown below.
+\begin{figure}[p!]
+\centering
+\input{firstsinfwderror}
+\caption{Plot of log\textsubscript{10}$E$ versus log\textsubscript{10}$N$ for
+numerical differentiation of first derivative using forward difference method}
+\end{figure}
+\begin{figure}[p!]
+\centering
+\input{firstsinbwderror}
+\caption{Plot of log\textsubscript{10}$E$ versus log\textsubscript{10}$N$ for
+numerical differentiation of first derivative using backward difference method}
+\end{figure}
+\begin{figure}[p!]
+\centering
+\input{firstsincnterror}
+\caption{Plot of log\textsubscript{10}$E$ versus log\textsubscript{10}$N$ for
+numerical differentiation of first derivative using central difference method}
+\end{figure}
+
+The error for calculation of the second derivative was also determined for
+each of the three differnt methods using the same formula. The plot are as
+follows.
+\begin{figure}[p!]
+\centering
+\input{secondsinfwderror}
+\caption{Plot of log\textsubscript{10}$E$ versus log\textsubscript{10}$N$ for
+numerical differentiation of second derivative using forward difference method}
+\end{figure}
+\begin{figure}[p!]
+\centering
+\input{secondsinbwderror}
+\caption{Plot of log\textsubscript{10}$E$ versus log\textsubscript{10}$N$ for
+numerical differentiation of second derivative using backward difference method}
+\end{figure}
+\begin{figure}[p!]
+\centering
+\input{secondsincnterror}
+\caption{Plot of log\textsubscript{10}$E$ versus log\textsubscript{10}$N$ for
+numerical differentiation of second derivative using central difference method}
+\end{figure}
+\newpage
+\section*{Numerical solution for 1D heat transfer}
+Forward time center in space (FTCS) method was used with the following formula:
+\begin{equation}
+T_i^{n+1} = T_i^n + \Delta t(\alpha \frac{\partial^2T}{\partial x^2})
+\end{equation}
+\end{document}

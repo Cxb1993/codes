@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Task: Coding numerical solution of ordinary differential equation}
+\author{Syed Ahmad Raza}
+\date{2017.11.10}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}          % for color eps output
+%\usepackage{float}          % to force a figure placement with [H] command
+%\usepackage{enumitem}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+%\usepackage{layouts}       % for: \printinunitsof{in}\prntlen{\textwidth}
+
+\begin{document}
+
+\section{Coding first order ordinary differential equation}
+
+\subsection{Problem}
+Code a program in C++ to solve the simple ordinary differential equation:
+\begin{equation}
+\frac{dy}{dt} = -y
+\end{equation}
+for time 0 to 2 seconds.
+
+\subsection{Analytical solution}
+The analytical solution for this equation is
+\begin{equation}
+y = Ce^{-t} \quad,
+\end{equation}
+where, for simplicity, it may be assumed that \(C=1\) based on the initial condition \(y(t=0)=1\).
+
+\subsection{Numerical approach}
+Using the discrete finite difference approximation, the derivative may be represented as
+\begin{equation}
+\frac{dy}{dt} = \frac{y^{n+1} - y^n}{\Delta t} \quad.
+\end{equation}
+
+\end{document}

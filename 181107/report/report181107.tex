@@ -1,0 +1,147 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza\\
+        D10503816}
+\date{2018.11.28}
+\usepackage{mathtools}          % for math
+\usepackage{graphicx}           % for graphics
+\usepackage{booktabs}           % for professional tables
+\usepackage{float}              % force a figure placement with [H] command
+\usepackage{newtxtext}          % better text font
+\usepackage{newtxmath}          % better math font
+\usepackage{nicefrac}           % use nicer smaller fractions
+\graphicspath{{../figures/}}    % only works when -shell-escape is used with pdflatex
+%\usepackage{enumitem}           % control layout of itemize and enumerate
+%\usepackage{layouts}            % find \printinunitsof{in}\prntlen{\textwidth}
+%\usepackage{xcolor}             % for using colors in document
+
+\begin{document}
+\maketitle
+%\tableofcontents
+%\pagebreak
+
+\section{Weighted essentially non-oscillatory scheme\\(WENO) with finite volume method for 3D Navier-Stokes equations on nonuniform grid}
+
+The three-dimensional solver for Navier-Stokes equations is being updated to utilize a fifth order WENO scheme. WENO schemes are an extension of essentially non-oscillatory schemes (ENO) \cite{cockburn_shu_johnson_tadmor_quarteroni_1998}.
+
+\subsection{Calculation of constants for WENO reconstruction}
+
+Let us analyze the procedure for calculating reconstructed values at a cell boundary for a \(k\)-th order WENO approximation.
+
+At a location \(I_i\) and the order of accuracy \(k\), we select a stencil,
+\begin{equation}
+S(i) \equiv \{I_{i-r}, \ldots, I_{i+s}\} \quad,
+\end{equation}
+based on \(r\) cells to the left, \(s\) cells to the right and \(I_i\) itself, where \(r,s \ge 0\) and \(r+s+1=k\).
+
+If we have the \(k\) cell averages,
+\begin{equation}
+\overline{v}_{i-r}, \ldots, \overline{v}_{i-r+k-1} \quad,
+\end{equation}
+the reconstructed value at the cell boundary \(x_{i+\nicefrac{1}{2}}\) can be found using constants \(c_{rj}\) such that
+\begin{equation}
+v_{i+\nicefrac{1}{2}} = \sum_{j=0}^{k-1}c_{rj}\overline{v}_{i-r+j}
+\end{equation}
+is \(k\)-th order accurate with
+\begin{equation}
+v_{i+\nicefrac{1}{2}} = v(x_{i+\nicefrac{1}{2}}) + O(\Delta x^k) \quad.
+\end{equation}
+
+\subsubsection{Uniform grid}
+For a uniform grid, \(\Delta x_i = \Delta x\) and \(c_{rj}\) can be calculated as:
+\begin{equation}
+c_{rj} = \sum_{m=j+1}^{k}
+\frac{\sum_{\substack{l=0\\l\ne m}}^{k}\prod_{\substack{q=0\\q\ne m,l}}^{k}\left(r-q+1\right)}
+{\prod_{\substack{l=0\\l\ne m}}^{k}\left(m-l\right)}
+\end{equation}
+For \(k=3\) at \(j=1, r=1 \text{ and } m=j+1=2\),
+\begin{equation*}
+\setlength{\jot}{10pt}
+\begin{aligned}
+c_{11} &= \sum_{m=2}^{3}
+\frac{\sum_{\substack{l=0\\l\ne m}}^{3}\prod_{\substack{q=0\\q\ne m,l}}^{3}(2-q)}
+{\prod_{\substack{l=0\\l\ne m}}^{k}(m-l)}\\
+c_{11}&= \left.\frac{\overbrace{(2-1)(2-3)}^{l=0}+\overbrace{(2-0)(2-3)}^{l=1}+\overbrace{(2-0)(2-1)}^{l=3}}
+{(2-0)(2-1)(2-3)}\qquad\right\}m=2\\
+&\quad + \left.\frac{\overbrace{(2-1)(2-2)}^{l=0}+\overbrace{(2-0)(2-2)}^{l=1}+\overbrace{(2-0)(2-1)}^{l=3}}
+{(3-0)(3-1)(3-2)}\quad\right\}m=3\\
+c_{11} &= \frac{5}{6}
+\end{aligned}
+\end{equation*}
+
+\newpage
+\subsubsection{Nonuniform grid}
+In case of nonuniform grid, \(c_{rj}\) has to be calculated using the formula:
+\begin{equation}
+c_{rj} = \left(\sum_{m=j+1}^{k}
+\frac{\sum_{\substack{l=0\\l\ne m}}^{k}
+    \prod_{\substack{q=0\\q\ne m,l}}^{k}
+    \left(x_{i+\nicefrac{1}{2}}-x_{i-r+q-\nicefrac{1}{2}}\right)}
+{\prod_{\substack{l=0\\l\ne m}}^{k}
+    \left(x_{i-r+m-\nicefrac{1}{2}}-x_{i-r+l-\nicefrac{1}{2}}\right)}\right)
+\Delta x_{i-r+j}
+\end{equation}
+For the same case with \(k=3\) at \(j=1, r=1 \text{ and } m=j+1=2\),
+\begin{equation*}
+\setlength{\jot}{10pt}
+\begin{aligned}
+c_{11} &= \left(\sum_{m=2}^{3}
+\frac{\sum_{\substack{l=0\\l\ne m}}^{3}
+    \prod_{\substack{q=0\\q\ne m,l}}^{3}
+    \left(x_{i+\nicefrac{1}{2}} - x_{i-1+q-\nicefrac{1}{2}}\right)}
+{\prod_{\substack{l=0\\l\ne m}}^{3}
+    \left(x_{i-1+m-\nicefrac{1}{2}} - x_{i-1+l-\nicefrac{1}{2}}\right)}\right)
+\Delta x_{i-1+j}\\
+c_{11} &= \left(\frac{\splitdfrac
+    {\splitdfrac{(x_{i+\nicefrac{1}{2}} - x_{i-1+1-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i-1+3-\nicefrac{1}{2}})}
+        {+ (x_{i+\nicefrac{1}{2}}-x_{i-1+0-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i-1+3-\nicefrac{1}{2}})}}
+    {+ (x_{i+\nicefrac{1}{2}}-x_{i-1+0-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}}- x_{i-1+1-\nicefrac{1}{2}})}}
+{(x_{i-1+2-\nicefrac{1}{2}} - x_{i-1+0-\nicefrac{1}{2}})
+(x_{i-1+2-\nicefrac{1}{2}} - x_{i-1+1-\nicefrac{1}{2}})
+(x_{i-1+2-\nicefrac{1}{2}} - x_{i-1+3-\nicefrac{1}{2}})}\right.\\
+&\quad \left. + \quad \frac{\splitdfrac
+    {\splitdfrac{(x_{i+\nicefrac{1}{2}} - x_{i-1+1-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i-1+2-\nicefrac{1}{2}})}
+        {+ (x_{i+\nicefrac{1}{2}}-x_{i-1+0-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i-1+2-\nicefrac{1}{2}})}}
+    {+ (x_{i+\nicefrac{1}{2}}-x_{i-1+0-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}}- x_{i-1+1-\nicefrac{1}{2}})}}
+{(x_{i-1+3-\nicefrac{1}{2}} - x_{i-1+0-\nicefrac{1}{2}})
+    (x_{i-1+3-\nicefrac{1}{2}} - x_{i-1+1-\nicefrac{1}{2}})
+    (x_{i-1+3-\nicefrac{1}{2}} - x_{i-1+2-\nicefrac{1}{2}})}\right)\\
+&\quad \times \quad \Delta x_{i-1+1}\\
+c_{11} &= \left(\frac{\splitdfrac
+    {(x_{i+\nicefrac{1}{2}} - x_{i-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i+\nicefrac{3}{2}})
+        + (x_{i+\nicefrac{1}{2}}-x_{i-\nicefrac{3}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i+\nicefrac{3}{2}})}
+    {+ (x_{i+\nicefrac{1}{2}}-x_{i-\nicefrac{3}{2}})
+        (x_{i+\nicefrac{1}{2}}- x_{i-\nicefrac{1}{2}})}}
+{(x_{i+\nicefrac{1}{2}} - x_{i-\nicefrac{3}{2}})
+    (x_{i+\nicefrac{1}{2}} - x_{i-\nicefrac{1}{2}})
+    (x_{i+\nicefrac{1}{2}} - x_{i+\nicefrac{3}{2}})}\right.\\
+&\quad \left. + \quad \frac{\splitdfrac
+    {(x_{i+\nicefrac{1}{2}} - x_{i-\nicefrac{1}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i+\nicefrac{1}{2}})
+        + (x_{i+\nicefrac{1}{2}}-x_{i-\nicefrac{3}{2}})
+        (x_{i+\nicefrac{1}{2}} - x_{i+\nicefrac{1}{2}})}
+    {+ (x_{i+\nicefrac{1}{2}}-x_{i-\nicefrac{3}{2}})
+        (x_{i+\nicefrac{1}{2}}- x_{i-\nicefrac{1}{2}})}}
+{(x_{i+\nicefrac{3}{2}} - x_{i-\nicefrac{3}{2}})
+    (x_{i+\nicefrac{3}{2}} - x_{i-\nicefrac{1}{2}})
+    (x_{i+\nicefrac{3}{2}} - x_{i+\nicefrac{1}{2}})}\right)
+\Delta x_{i}
+\end{aligned}
+\end{equation*}
+
+Similarly, constants \(c_{rj}\) have to be calculated for all cells at all locations.
+
+\newpage
+% References
+\bibliographystyle{unsrt}
+\bibliography{WENO-1997-Shu_Book-Advanced_Numerical_Approximation.bib}
+
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2017.05.02}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}          % for color eps output
+\usepackage{afterpage}
+\usepackage{newtxtext, newtxmath}
+
+%\usepackage{layouts}       % for: \printinunitsof{in}\prntlen{\textwidth}
+
+\begin{document}
+	\maketitle
+	\section*{\raggedright Numerical solution of Navier-Stokes equations using Finite Volume Method}
+    
+    Continuity equation and Navier-Stokes equation are used and denoted as
+    \begin{equation} \label{eq:continuity}
+    \nabla \cdot \mathbf{u} = 0
+    \end{equation}
+    and 
+    \begin{equation}\label{eq:navier-stokes}
+    \frac {\partial \mathbf{u}}{\partial t}+\nabla \cdot (\mathbf{u}\mathbf{u})  = -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{u}+\mathbf{f}
+    \end{equation}
+    where {\bf u} is a velocity vector, {\it p} is pressure, $\rho$ is density of fluid, and {\bf f} is body force per unit mass.  
+
+    \subsection*{\raggedright Projection method}
+    Projection method was proposed by Chorin in 1967 to solve the governing equations for fluid flow.  Using this mehtod, Navier-Stokes equation is decomposed into
+    \begin{eqnarray}
+    \frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = -\nabla \cdot (\mathbf{u}\mathbf{u})+ \nu \nabla^2 \mathbf{u}
+    \label{eq:projection01}\\
+    \frac{\mathbf{u}^{n+1}-\mathbf{u}^*}{\Delta t}=-\frac{1}{\rho}\nabla p\quad
+    \label{projection02}
+    \end{eqnarray}
+    where {\it n} is the time level index. For the current problem, the body force is ignored.
+    
+    The new vector $\mathbf{u}^*$ is an intermediate velocity that allows us to break the solution into two convenient steps. This technique permits the solution of convective and diffusive terms separately from the pressure term. Later, the pressure term can be solved using
+    \begin{equation} \label{eq:poisson}
+    \nabla^2 p = \frac{\rho}{\Delta t}\nabla \cdot \mathbf{u}^* \quad.
+    \end{equation}
+    
+    \subsection*{\raggedright Adams-Bashforth scheme}
+    Denoting the terms on the right-hand side of equation \eqref{eq:projection01} with $\mathcal{F}(\mathbf{u})$, the second order Adams-Bashforth scheme can be applied using
+    \begin{equation}\label{eq:adams-bashforth}
+    \frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = \frac{3}{2}\mathcal{F}(\mathbf{u}^n)-\frac{1}{2}\mathcal{F}(\mathbf{u}^{n-1})\quad .
+    \end{equation}
+    
+    Applying this formula to a 2D problem, the discretized equations can be written as
+    \begin{eqnarray}
+    \mathcal{F}(u_{i,j}^{n+1}) = -\frac{u_e^2 - u_w^2}{\Delta x} + \frac{\nu}{\Delta x} \left(\frac{u_{i+1,j} - u_{i,j}}{\Delta x} - \frac{u_{i,j} - u_{i-1,j}}{\Delta x}\right) \label{eq:Fu}\\
+    \mathcal{F}(v_{i,j}^{n+1}) = -\frac{v_n^2 - v_s^2}{\Delta y} + \frac{\nu}{\Delta y} \left(\frac{v_{i,j+1} - v_{i,j}}{\Delta y} - \frac{v_{i,j} - v_{i,j-1}}{\Delta y}\right) \label{eq:Fv}
+    \end{eqnarray}
+    where
+    \begin{eqnarray*}
+    u_e = u_{i,j}\\
+    u_w = u_{i-1,j}\\
+    v_n = v_{i,j}\\
+    v_s = v_{i,j-1}
+    \end{eqnarray*}
+    and then
+    \begin{eqnarray}
+    u*_{i,j} = \frac{3}{2}\mathcal{F}(u_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(u_{i,j}^{n})\\
+    v*_{i,j} = \frac{3}{2}\mathcal{F}(v_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(v_{i,j}^{n})
+    \end{eqnarray}
+\end{document}

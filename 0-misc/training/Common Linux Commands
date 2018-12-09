@@ -1,0 +1,15 @@
+# Common Linux Commands
+
+ssh user@140.118.198.163
+
+mkdir newFolder
+
+cd newFolder
+
+nano helloWorld.cpp
+
+g++ -O3 -Wall -std=c++14 helloWorld.cpp -o run
+
+rsh node01
+
+./run

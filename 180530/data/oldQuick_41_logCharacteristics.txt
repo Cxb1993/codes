@@ -1,0 +1,48 @@
+Finite Volume Method for 2D flow
+
+Variable            Values
+
+velScheme           quick
+ny                  45
+nx                  45
+nz                  45
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               0.8
+maxTimesteps        1000000
+maxPressIters       1000
+uResidual           1e-12
+vResidual           1e-12
+wResidual           1e-12
+pResidual           1e-08
+dt                  1e-05 s
+
+x_y_ratio           1
+x_z_ratio           1
+L                   1 m
+B                   1 m
+H                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+wInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      testQuick
+Comments            Testing QUICK scheme
+
+
+Case completion data
+
+Max. mass residual  2.72304e-07
+Max. pr. residual   3.97424e-10
+Max. change in u    1.73721e-09
+Max. change in v    1.51161e-09
+Max. change in w    6.07564e-10
+Final timestep      1000000
+Running time        5511 min

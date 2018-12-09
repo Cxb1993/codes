@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{GHIA1982387}
+U~Ghia, K.N Ghia, and C.T Shin.
+\newblock High-re solutions for incompressible flow using the navier-stokes
+  equations and a multigrid method.
+\newblock {\em Journal of Computational Physics}, 48(3):387 -- 411, 1982.
+
+\bibitem{Ku:1987:PMS:33136.33145}
+Hwar~C. Ku, Richard~S. Hirsh, and Thomas~D. Taylor.
+\newblock A pseudospectral method for solution of the three-dimensional
+  incompressible navier-stokes equations.
+\newblock {\em J. Comput. Phys.}, 70(2):439--462, June 1987.
+
+\end{thebibliography}

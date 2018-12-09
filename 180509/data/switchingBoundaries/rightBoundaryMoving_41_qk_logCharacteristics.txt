@@ -1,0 +1,42 @@
+Finite Volume Method for 2D flow
+
+Variable            Values
+
+velScheme           qk
+ny                  45
+nx                  45
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        100000
+maxPressIters       1000
+uResidual           1e-12
+vResidual           1e-12
+pResidual           1e-08
+dt                  0.001 s
+
+x_y_ratio           1
+D                   1 m
+L                   1 m
+uIn                 0 m/s
+vIn                 1 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      oppositeInverted180512
+Comments            Testing inverted; right side boundary moving
+
+
+Case completion data
+
+Max. mass residual  0.00097722
+Max. pr. residual   1.8047e-11
+Max. change in u    7.79559e-13
+Max. change in v    7.22469e-13
+Final timestep      35432
+Running time        0 min

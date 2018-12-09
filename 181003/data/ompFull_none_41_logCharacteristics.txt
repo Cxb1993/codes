@@ -1,0 +1,50 @@
+Finite Volume Method for 3D flow
+
+Variable            Values
+
+velScheme           quick
+ny                  45
+nx                  45
+nz                  45
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        1000000
+maxPrIters          1000
+uResidual           1e-12
+vResidual           1e-12
+wResidual           1e-12
+pResidual           1e-08
+dt                  0.0001 s
+numOfThreads        0
+
+x_y_ratio           1
+x_z_ratio           1
+L                   1 m
+B                   1 m
+H                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+wInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      ompFull_none
+Comments            Testing final openMP version without openMP
+
+
+Case completion data
+
+Max. mass residual  2.72304e-06
+Max. pr. residual   2.74595e-10
+Max. change in u    6.42225e-13
+Max. change in v    9.30567e-13
+Max. change in w    7.74411e-13
+tPrConvrg           834			// 1st timestep when pIter < maxPrIters
+Final timestep      373420
+Running time        333 min

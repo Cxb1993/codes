@@ -1,0 +1,19 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2016.11.15}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color}
+
+\begin{document}
+	\maketitle
+		\section*{Grid generating algorithm in C++ and its plot on gnuplot}
+		An algorithm was coded in C++ for generating a square grid of $(x, y)$ coordinates with 100 divisions between 0 and 1. The C++ program generated  a \emph{.dat} file with coordinates in column format, separated by spaces and linebreaks. The \emph{.dat} file was used to plot a grid in gnuplot using script in a \emph{.gnu} file format.
+		
+		The results are shown in the figure below.
+	\begin{figure}
+		\input{xygrid}
+		\caption{The grid generated using C++ algorithm, plotted in gnuplot, exported to \emph{.eps} file format}
+	\end{figure}
+\end{document}

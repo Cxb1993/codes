@@ -1,0 +1,27 @@
+Finite Volume Method case for 2D flow inside a pipe
+
+Variable		Values
+x_y_ratio		30
+D				0.1 m
+L				3 m
+ny				20
+nx				600
+
+uin				0.01 m/s
+vin				0 m/s
+pconst			100000 Pa
+
+nu				0.0001
+rho				1000
+
+omega			1.8
+uResidual		1e-07
+vResidual		1e-07
+pResidual		0.0001
+dt				1e-05 s
+
+Re				10
+Entry length	0.05 m
+CFL				1.99667e-05
+
+Final time step is 20641

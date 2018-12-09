@@ -1,0 +1,253 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2017.05.10}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}          % for color eps output
+\usepackage{afterpage}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+%\usepackage{layouts}       % for: \printinunitsof{in}\prntlen{\textwidth}
+
+\begin{document}
+	\maketitle
+	\section*{\raggedright Numerical solution of Navier-Stokes equations using Finite Volume Method}
+
+    Continuity equation and Navier-Stokes equation are used and denoted as
+    \begin{equation} \label{eq:continuity}
+    \nabla \cdot \mathbf{u} = 0
+    \end{equation}
+    and
+    \begin{equation}\label{eq:navier-stokes}
+    \frac {\partial \mathbf{u}}{\partial t}+\nabla \cdot (\mathbf{u}\mathbf{u}) = -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{u}+\mathbf{f}
+    \end{equation}
+    where {\bf u} is a velocity vector, {\it p} is pressure, $\rho$ is density of fluid, and {\bf f} is body force per unit mass.
+
+    \subsection*{\raggedright Projection method}
+    Projection method was proposed by Chorin in 1967 to solve the governing equations for fluid flow.  Using this method, Navier-Stokes equation is decomposed into
+    \begin{eqnarray}
+    \frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = -\nabla \cdot (\mathbf{u}\mathbf{u})+ \nu \nabla^2 \mathbf{u}
+    \label{eq:projection01}\\
+    \frac{\mathbf{u}^{n+1}-\mathbf{u}^*}{\Delta t}=-\frac{1}{\rho}\nabla p\quad
+    \label{projection02}
+    \end{eqnarray}
+    where {\it n} is the time level index. For the current problem, the body force is ignored.
+
+    The vector $\mathbf{u}^*$ is an intermediate velocity that allows us to break the solution into two convenient steps. This technique permits the solution of convective and diffusive terms separately from the pressure term. Later, the pressure term can be solved using
+    \begin{equation} \label{eq:poisson}
+    \nabla^2 p = \frac{\rho}{\Delta t}\nabla \cdot \mathbf{u}^* \quad.
+    \end{equation}
+
+    \subsection*{\raggedright Discretization of the convective and diffusive terms}
+    The convective and diffusive terms from equation \eqref{eq:projection01} can be discretized as explained below. Starting from the $u$-component of \eqref{eq:projection01}
+    \begin{equation} \label{eq:convective-diffusive-u}
+    \frac{\partial u}{\partial t} = -\frac{\partial uu}{\partial x} -\frac{\partial uv}{\partial y} + \nu\left[\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2}\right]
+    \end{equation}
+    and integrating throughout
+    \begin{align} \label{eq:integrated_convective-diffusive-u}
+    \iint\!\frac{\partial u}{\partial t} \,dx \,dy
+    = -\!\iint\!\frac{\partial (uu)}{\partial x} \,dx \,dy \, - \iint\!\frac{\partial (uv)}{\partial y} \,dx \,dy \nonumber\\
+    + \, \nu\left[\iint\!\frac{\partial^2u}{\partial x^2} \,dx \,dy + \iint\!\frac{\partial^2u}{\partial y^2} \,dx \,dy \right]
+    \end{align}
+    \begin{align}\label{eq:discretized_convective-diffusive-u01}
+    \frac{\partial u}{\partial t}\Delta x\Delta y =
+    {}&-\big(u_e^2 - u_w^2\big)\Delta y - \big(u_n v_n - u_s v_s\big)\Delta x \nonumber\\
+    &+ \nu\left[
+    \left\{\left(\frac{\partial u}{\partial x}\right)_e-\left(\frac{\partial u}{\partial x}\right)_w\right\}\Delta y
+    + \left\{\left(\frac{\partial u}{\partial y}\right)_n-\left(\frac{\partial u}{\partial y}\right)_s\right\}\Delta x
+    \right]
+    \end{align}
+    \begin{align}\label{eq:discretized_convective-diffusive-u02}
+    \frac{\partial u}{\partial t} =
+    {}&-\frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y} \nonumber\\
+    &+ \nu\left[
+    \left\{\left(\frac{\partial u}{\partial x}\right)_e-\left(\frac{\partial u}{\partial x}\right)_w\right\}\frac{1}{\Delta x}
+    + \left\{\left(\frac{\partial u}{\partial y}\right)_n-\left(\frac{\partial u}{\partial y}\right)_s\right\}\frac{1}{\Delta y}
+    \right]
+    \end{align}
+    \begin{align}\label{eq:discretized_convective-diffusive-u03}
+    \frac{\partial u}{\partial t} =
+    {}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y} + \nu\left[
+    \left\{
+    \frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+    - \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+    \right\}
+    \frac{1}{\Delta x}
+    \right.\nonumber\\
+    & \left. + \left\{
+    \frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+    - \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+    \right\}
+    \frac{1}{\Delta y}
+    \right] \quad ,
+    \end{align}
+    where
+    \begin{equation*}
+    \begin{aligned}
+    u_e &= u_{i,j}\\
+    u_w &= u_{i-1,j}\\
+    u_n &= u_{i,j} + \frac{u_{i,j+1} - u_{i,j}}{(y_{j+2}-y_j)/2}\\
+    u_s &= u_{i,j} - \frac{u_{i,j} - u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+    \end{aligned}
+    \qquad\qquad
+    \begin{aligned}
+    v_n &= v_{i,j}\\
+    v_s &= v_{i,j-1}\quad .\\
+    {}\\
+    {}\\
+    {}
+    \end{aligned}
+    \end{equation*}
+    Similarly, for the $v$-component of \eqref{eq:projection01}, starting from
+    \begin{equation} \label{eq:convective-diffusive-v}
+    \frac{\partial v}{\partial t} = -\frac{\partial uv}{\partial x} -\frac{\partial vv}{\partial y} + \nu\left[\frac{\partial^2v}{\partial x^2} + \frac{\partial^2v}{\partial y^2}\right] \quad ,
+    \end{equation}
+    and finally leading to
+    \begin{align}\label{eq:discretized_convective-diffusive-v03}
+    \frac{\partial v}{\partial t} =
+    {}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} + \nu\left[
+    \left\{
+    \frac{v_{i+1,j}-v_{i,j}}{(x_{i+2}-x_i)/2}
+    - \frac{v_{i,j}-v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+    \right\}
+    \frac{1}{\Delta x}
+    \right.\nonumber\\
+    & \left. + \left\{
+    \frac{v_{i,j+1}-v_{i,j}}{y_{j+2}-y_{j+1}}
+    - \frac{v_{i,j}-v_{i,j-1}}{y_{j+1}-y_{j-1}}
+    \right\}
+    \frac{1}{\Delta y}
+    \right] \quad ,
+    \end{align}
+    where
+    \begin{equation*}
+    \begin{aligned}
+    v_n &= v_{i,j}\\
+    v_s &= v_{i,j-1}\\
+    v_e &= v_{i,j} + \frac{v_{i+1,j} - v_{i,j}}{(x_{i+2}-x_i)/2}\\
+    v_w &= v_{i,j} - \frac{v_{i,j} - v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+    \end{aligned}
+    \qquad\qquad
+    \begin{aligned}
+    u_e &= u_{i,j}\\
+    u_w &= u_{i-1,j}\quad .\\
+    {}\\
+    {}\\
+    {}
+    \end{aligned}
+    \end{equation*}
+
+    \subsection*{\raggedright First time step}
+    For the first time step, the Euler scheme is adopted for the intermediate velocity using
+    \begin{align}
+    \frac{u^*_{i,j}-u^{}_{i,j}}{\Delta t} =
+    {}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y}
+    \nonumber \\
+    & + \nu\left[
+    \left\{
+    \frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+    - \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+    \right\}
+    \frac{1}{\Delta x}
+    \right.
+    \nonumber\\
+    & \left. + \left\{
+    \frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+    - \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+    \right\}
+    \frac{1}{\Delta y}
+    \right] \quad ,
+    \label{eq:Euler-u}
+    \end{align}
+    and
+    \begin{align}
+    \frac{v^*_{i,j}-v^{}_{i,j}}{\Delta t} =
+    {}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} \nonumber \\
+    & + \nu\left[
+    \left\{
+    \frac{v_{i+1,j}-v_{i,j}}{x_{i+2}-x_{i+1}}
+    - \frac{v_{i,j}-v_{i-1,j}}{x_{i+1}-x_i}
+    \right\}
+    \frac{1}{\Delta x}
+    \right.\nonumber\\
+    & \left. + \left\{
+    \frac{v_{i,j+1}-v_{i,j}}{(y_{j+2}-y_{j+1})/2}
+    - \frac{v_{i,j}-v_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+    \right\}
+    \frac{1}{\Delta y}
+    \right] \quad .
+    \label{eq:Euler-v}
+    \end{align}
+
+    \subsection*{\raggedright Adams-Bashforth scheme}
+    Denoting the terms on the right-hand side of equation \eqref{eq:projection01} with $\mathcal{F}(\mathbf{u})$, the second order Adams-Bashforth scheme can be applied using
+    \begin{equation}\label{eq:adams-bashforth}
+    \frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = \frac{3}{2}\mathcal{F}(\mathbf{u}^n)-\frac{1}{2}\mathcal{F}(\mathbf{u}^{n-1})\quad .
+    \end{equation}
+
+    Applying this formula to a 2D problem, the discretized equations can be written as
+    \begin{align}
+    \mathcal{F}(u_{i,j}^n) = {}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y} + \nu\left[
+    \left\{
+    \frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+    - \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+    \right\}
+    \frac{1}{\Delta x}
+    \right.\nonumber\\
+    & \left. + \left\{
+    \frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+    - \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+    \right\}
+    \frac{1}{\Delta y}
+    \right] \quad ,
+    \label{eq:Fu}
+    \end{align}
+    and
+    \begin{align}
+    \mathcal{F}(v_{i,j}^n) = {}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} + \nu\left[
+    \left\{
+    \frac{v_{i+1,j}-v_{i,j}}{x_{i+2}-x_{i+1}}
+    - \frac{v_{i,j}-v_{i-1,j}}{x_{i+1}-x_i}
+    \right\}
+    \frac{1}{\Delta x}
+    \right.\nonumber\\
+    & \left. + \left\{
+    \frac{v_{i,j+1}-v_{i,j}}{(y_{j+2}-y_{j+1})/2}
+    - \frac{v_{i,j}-v_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+    \right\}
+    \frac{1}{\Delta y}
+    \right] \quad .
+    \label{eq:Fv}
+    \end{align}
+    Then, the intermediate velocity will be
+    \begin{eqnarray}
+    \frac{u^*_{i,j} - u^{}_{i,j}}{\Delta t} = \frac{3}{2}\mathcal{F}(u_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(u_{i,j}^{n}) \\
+    \frac{v^*_{i,j} - v^{}_{i,j}}{\Delta t} = \frac{3}{2}\mathcal{F}(v_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(v_{i,j}^{n})
+    \end{eqnarray}
+
+    \subsection*{\raggedright Boundary conditions}
+    Velocity boundary conditions are described below.
+    \begin{enumerate}
+    \item Top boundary (Dirichlet):
+    \begin{eqnarray*}
+    u_{i,n_y-1} &= -u_{i,n_y-2} \qquad \text{for all }i\\
+    v_{i,n_y-1} &= -v_{i,n_y-2} \qquad \text{for all }i
+    \end{eqnarray*}
+    \item Bottom boundary (Dirichlet):
+    \begin{eqnarray*}
+    u_{i,0} = -u_{i,1} \qquad \text{for all }i\\
+    v_{i,0} = -v_{i,1} \qquad \text{for all }i
+    \end{eqnarray*}
+    \item Left boundary (Dirichlet):
+    \begin{eqnarray*}
+    u_{0,j} = u_{\text{in}} \qquad \text{for all }j\\
+    v_{0,j} = v_{\text{in}} \qquad \text{for all }j
+    \end{eqnarray*}
+    \item Right boundary (Neumann):
+    \begin{eqnarray*}
+    u_{n_x-1,j} = u_{n_x-2,j} \qquad \text{for all }j\\
+    v_{n_x-1,j} = v_{n_x-2,j} \qquad \text{for all }j
+    \end{eqnarray*}
+    \end{enumerate}
+\end{document}

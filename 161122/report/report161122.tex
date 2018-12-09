@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2016.11.15}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color}			% for color eps output
+
+\begin{document}
+	\maketitle
+		\section*{First order numerical differentiation}
+		An algorithm was coded in C++ for numerical differentiation using three different commonly used schemes. The functions sin$(3x)$ and cos$(3x)$ were differentiated using forward difference method, backward difference method and central difference method.
+		
+			\subsection*{Forward difference method}
+			\begin{equation}
+			f^\prime(x) = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i}
+			\end{equation}
+			
+			\subsection*{Backward difference method}
+			\begin{equation}
+			f^\prime(x) = \frac{f(x_i)-f(x_{i-1})}{x_i-x_{i-1}}
+			\end{equation}
+			
+			\subsection*{Central difference method}
+			\begin{equation}
+			f^\prime(x) = \frac{f(x_{i+1})-f(x_{i-1})}{x_{i+1}-x_{i-1}}
+			\end{equation}
+		
+		The results are shown in the figures below.
+		\begin{figure}
+			\centering
+			\input{1stsin10}
+			\caption{Comparison of numerical differentiation of sin$(3x)$ using 10 intervals}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{1stsin100}
+			\caption{Comparison of numerical differentiation of sin$(3x)$ using 100 intervals}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{1stcos10}
+			\caption{Comparison of numerical differentiation of cos$(3x)$ using 10 intervals}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{1stcos100}
+			\caption{Comparison of numerical differentiation of cos$(3x)$ using 100 intervals}
+		\end{figure}
+
+		\section*{2nd order numerical differentiation}
+		Another algorithm was coded in C++ for double derivatives using similar three commonly used schemes. The functions sin$(3x)$ and cos$(3x)$ were differentiated twice using forward difference method, backward difference method and central difference method.
+		
+		\subsection*{Forward difference method for 2nd derivative}
+		\begin{equation}
+		f^\prime(x) = \frac{f(x_{i+2})-2f(x_{i+1})+f(x_i)}{h^2}
+		\end{equation}
+		
+		\subsection*{Backward difference method for 2nd derivative}
+		\begin{equation}
+		f^\prime(x) = \frac{f(x_i)-2f(x_{i-1})+f(x_{i-2})}{h^2}
+		\end{equation}
+		
+		\subsection*{Central difference method for 2nd derivative}
+		\begin{equation}
+		f^\prime(x) = \frac{f(x_{i+1})-2f(x)+f(x_{i-1})}{h^2}
+		\end{equation}
+		
+		The results are shown in the figures below.
+
+		\begin{figure}
+			\centering
+			\input{2ndsin10}
+			\caption{Comparison of double derivative of sin$(3x)$ using 10 intervals}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{2ndsin100}
+			\caption{Comparison of double derivative of sin$(3x)$ using 100 intervals}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{2ndcos10}
+			\caption{Comparison of double derivative of cos$(3x)$ using 10 intervals}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{2ndcos100}
+			\caption{Comparison of double derivative of cos$(3x)$ using 100 intervals}
+		\end{figure}
+\end{document}

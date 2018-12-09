@@ -1,0 +1,220 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2017.05.16}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}          % for color eps output
+\usepackage{afterpage}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+%\usepackage{layouts}       % for: \printinunitsof{in}\prntlen{\textwidth}
+
+\begin{document}
+	\maketitle
+	\section*{\raggedright Solving the pressure term for solution of Navier-Stokes equations using Finite Volume Method}
+    
+    Continuity equation:
+    \begin{equation} \label{eq:continuity}
+    \nabla \cdot \mathbf{u} = 0
+    \end{equation}
+    Navier-Stokes equation:
+    \begin{equation}\label{eq:navier-stokes}
+    \frac {\partial \mathbf{u}}{\partial t}+\nabla \cdot (\mathbf{u}\mathbf{u}) = -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{u}+\mathbf{f} \quad .
+    \end{equation}
+
+    \subsection*{\raggedright Projection method}
+    Ignoring the body force, projection method is used to decompose Navier-Stokes equation into
+    \begin{eqnarray}
+    \frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = -\nabla \cdot (\mathbf{u}\mathbf{u})+ \nu \nabla^2 \mathbf{u}
+    \label{eq:projection01}\\
+    \frac{\mathbf{u}^{n+1}-\mathbf{u}^*}{\Delta t}=-\frac{1}{\rho}\nabla p
+    \label{projection02}
+    \end{eqnarray}
+    where {\it n} is the time level index.
+    
+    \subsection*{\raggedright Poisson equation of pressure}
+    The pressure term can be solved using
+    \begin{equation} \label{eq:poisson}
+    \nabla^2 p = \frac{\rho}{\Delta t}\nabla \cdot \mathbf{u}^* \quad ,
+    \end{equation}
+    which can be represented as
+    \begin{equation} \label{eq:poisson-componenets}
+    \frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2}
+    = \frac{1}{\Delta t} \left(\frac{\partial u^*}{\partial x} + \frac{\partial v^*}{\partial y}\right) \quad .
+    \end{equation}
+    Integrating it twice, discretizing and rearranging leads to
+    \begin{align}
+    p_{i,j} =
+    &\frac{1}{\left[ - \frac{Dy}{Dx1} - \frac{Dy}{Dx2} - \frac{Dx}{Dy1} - \frac{Dx}{Dy2} \right]}
+    \nonumber \\
+    &\times
+    \left[
+    - \frac{Dy}{Dx1}p_{i+1,j} - \frac{Dy}{Dx2}p_{i-1,j} - \frac{Dx}{Dy1}p_{i,j+1} - \frac{Dx}{Dy2}p_{i,j-1}
+    \right. \nonumber \\
+    &\left.
+    + \frac{1}{\Delta t}\left\{
+    \left(u^*_{i,j}-u^*_{i-1,j}\right) \Delta y
+    + \left(v^*_{i,j}-v^*_{i,j-1}\right) \Delta x
+    \right\}
+    \right]
+    \quad .
+    \end{align}
+    Using successive over-relaxation method (SOR),
+    \begin{align}
+    p_{i,j} =& \left(1 - \omega\right)p_{i,j} + \omega
+    \Bigg[
+    \frac{1}{\left( - \frac{Dy}{Dx1} - \frac{Dy}{Dx2} - \frac{Dx}{Dy1} - \frac{Dx}{Dy2} \right)}
+    \nonumber \\
+    &\times
+    \left\{
+    - \frac{Dy}{Dx1}p_{i+1,j} - \frac{Dy}{Dx2}p_{i-1,j} - \frac{Dx}{Dy1}p_{i,j+1} - \frac{Dx}{Dy2}p_{i,j-1}
+    \right. \nonumber \\
+    &\left.
+    + \frac{1}{\Delta t}\left(
+    \big(u^*_{i,j}-u^*_{i-1,j}\big) \Delta y
+    + \big(v^*_{i,j}-v^*_{i,j-1}\big) \Delta x
+    \right)
+    \right\}
+    \Bigg]
+    \quad ,
+    \end{align}
+    where the relaxation factor, $\omega = 1.8$.
+    
+    Finally, the correct velocity can be found using
+    \begin{equation}
+    \mathbf{u}^{n+1} = \mathbf{u}^* - \frac{\Delta t}{\rho}\cdot \nabla p \quad ,
+    \end{equation}
+    which is, for $u$- and $v$-components,
+    \begin{equation}
+    u^{n+1}_{i,j} = u^*_{i,j} - \frac{\Delta t}{\rho}\cdot \frac{p_{i+1,j} - p_{i,j}}{\Delta x}
+    \end{equation}
+    and
+    \begin{equation}
+    v^{n+1}_{i,j} = v^*_{i,j} - \frac{\Delta t}{\rho}\cdot \frac{p_{i,j+1} - p_{i,j}}{\Delta y}
+    \end{equation}
+    
+    
+    
+\end{document}
+%\subsection*{\raggedright Euler scheme for first time step}
+%For the first time step, the Euler scheme is adopted for the intermediate velocity using
+%\begin{align}
+%\frac{u^*_{i,j}-u^{}_{i,j}}{\Delta t} =
+%{}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y}
+%\nonumber \\
+%& + \nu\left[
+%\left\{
+%\frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+%- \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+%\right\}
+%\frac{1}{\Delta x}
+%\right.
+%\nonumber\\
+%& \left. + \left\{
+%\frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+%- \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+%\right\}
+%\frac{1}{\Delta y}
+%\right] \quad ,
+%\label{eq:Euler-u}
+%\end{align}
+%where
+%\begin{equation*}
+%\begin{aligned}
+%u_e &= u_{i,j}\\
+%u_w &= u_{i-1,j}\\
+%u_n &= u_{i,j} + \frac{u_{i,j+1} - u_{i,j}}{(y_{j+2}-y_j)/2}\\
+%u_s &= u_{i,j} - \frac{u_{i,j} - u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+%\end{aligned}
+%\qquad\qquad
+%\begin{aligned}
+%v_n &= v_{i,j}\\
+%v_s &= v_{i,j-1}\quad .\\
+%{}\\
+%{}\\
+%{}
+%\end{aligned}
+%\end{equation*}
+%and
+%\begin{align}
+%\frac{v^*_{i,j}-v^{}_{i,j}}{\Delta t} = 
+%{}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} \nonumber \\
+%& + \nu\left[
+%\left\{
+%\frac{v_{i+1,j}-v_{i,j}}{x_{i+2}-x_{i+1}}
+%- \frac{v_{i,j}-v_{i-1,j}}{x_{i+1}-x_i}
+%\right\}
+%\frac{1}{\Delta x}
+%\right.\nonumber\\
+%& \left. + \left\{
+%\frac{v_{i,j+1}-v_{i,j}}{(y_{j+2}-y_{j+1})/2}
+%- \frac{v_{i,j}-v_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+%\right\}
+%\frac{1}{\Delta y}
+%\right] \quad .
+%\label{eq:Euler-v}
+%\end{align}
+%where
+%\begin{equation*}
+%\begin{aligned}
+%v_n &= v_{i,j}\\
+%v_s &= v_{i,j-1}\\
+%v_e &= v_{i,j} + \frac{v_{i+1,j} - v_{i,j}}{(x_{i+2}-x_i)/2}\\
+%v_w &= v_{i,j} - \frac{v_{i,j} - v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+%\end{aligned}
+%\qquad\qquad
+%\begin{aligned}
+%u_e &= u_{i,j}\\
+%u_w &= u_{i-1,j}\quad .\\
+%{}\\
+%{}\\
+%{}
+%\end{aligned}
+%\end{equation*}
+%
+%\subsection*{\raggedright Adams-Bashforth scheme}
+%Denoting the terms on the right-hand side of equation \eqref{eq:projection01} with $\mathcal{F}(\mathbf{u})$, the second order Adams-Bashforth scheme can be applied using
+%\begin{equation}\label{eq:adams-bashforth}
+%\frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = \frac{3}{2}\mathcal{F}(\mathbf{u}^n)-\frac{1}{2}\mathcal{F}(\mathbf{u}^{n-1})\quad .
+%\end{equation}
+%
+%Applying this formula to a 2D problem, the discretized equations can be written as
+%\begin{align}
+%\mathcal{F}(u_{i,j}^n) = {}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y} + \nu\left[
+%\left\{
+%\frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+%- \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+%\right\}
+%\frac{1}{\Delta x}
+%\right.\nonumber\\
+%& \left. + \left\{
+%\frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+%- \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+%\right\}
+%\frac{1}{\Delta y}
+%\right] \quad ,
+%\label{eq:Fu}
+%\end{align}
+%and
+%\begin{align}
+%\mathcal{F}(v_{i,j}^n) = {}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} + \nu\left[
+%\left\{
+%\frac{v_{i+1,j}-v_{i,j}}{x_{i+2}-x_{i+1}}
+%- \frac{v_{i,j}-v_{i-1,j}}{x_{i+1}-x_i}
+%\right\}
+%\frac{1}{\Delta x}
+%\right.\nonumber\\
+%& \left. + \left\{
+%\frac{v_{i,j+1}-v_{i,j}}{(y_{j+2}-y_{j+1})/2}
+%- \frac{v_{i,j}-v_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+%\right\}
+%\frac{1}{\Delta y}
+%\right] \quad .
+%\label{eq:Fv}
+%\end{align}
+%Then, the intermediate velocity will be
+%\begin{eqnarray}
+%\frac{u^*_{i,j} - u^{}_{i,j}}{\Delta t} = \frac{3}{2}\mathcal{F}(u_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(u_{i,j}^{n}) \\
+%\frac{v^*_{i,j} - v^{}_{i,j}}{\Delta t} = \frac{3}{2}\mathcal{F}(v_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(v_{i,j}^{n})
+%\end{eqnarray}

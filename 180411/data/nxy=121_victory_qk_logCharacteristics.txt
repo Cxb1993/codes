@@ -1,0 +1,42 @@
+Finite Volume Method for 2D flow
+
+Variable            Values
+
+velScheme           qk
+ny                  125
+nx                  125
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        1000000
+maxPressIters       1000
+uResidual           1e-12
+vResidual           1e-12
+pResidual           1e-10
+dt                  0.0001 s
+
+x_y_ratio           1
+D                   1 m
+L                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      _victory
+Comments            boundary adjustments: u for right and v for top 
+
+
+Case completion data
+
+Max. mass residual  0.000265414
+Max. pr. residual   7.85879e-11
+Max. change in u    9.99409e-13
+Max. change in v    1.03909e-12
+Final timestep      305130
+Running time        295 min

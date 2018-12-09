@@ -1,0 +1,41 @@
+Finite Volume Method for 2D flow
+
+Variable            Values
+
+velScheme           qk
+ny                  14
+nx                  14
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        1000000
+maxPressIters       1000
+uResidual           1e-12
+vResidual           1e-12
+pResidual           1e-06
+dt                  0.001 s
+
+x_y_ratio           1
+D                   1 m
+L                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      _043020ghost
+Comments            Ghost cells expanded to two rows all around thegrid
+
+
+Case completion data
+
+Max. mass residual  0.00177849
+Max. pr. residual   0.445862
+Max. change in u    2.99424e-09
+Max. change in v    3.56178e-09
+Final timestep      1000000
+Running time        54 min

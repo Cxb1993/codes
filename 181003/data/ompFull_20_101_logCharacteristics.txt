@@ -1,0 +1,50 @@
+Finite Volume Method for 3D flow
+
+Variable            Values
+
+velScheme           quick
+ny                  105
+nx                  105
+nz                  105
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        2000000
+maxPrIters          2000
+uResidual           1e-12
+vResidual           1e-12
+wResidual           1e-12
+pResidual           1e-08
+dt                  1e-05 s
+numOfThreads        20
+
+x_y_ratio           1
+x_z_ratio           1
+L                   1 m
+B                   1 m
+H                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+wInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      ompFull_20
+Comments            Testing openMP momentum funciton quick scheme included
+
+
+Case completion data
+
+Max. mass residual  2.26725e-07
+Max. pr. residual   4.91409e-09
+Max. change in u    1.09734e-11
+Max. change in v    1.28141e-11
+Max. change in w    1.26408e-11
+tPrConvrg           2894			// 1st timestep when pIter < maxPrIters
+Final timestep      2000000
+Running time        2637 min

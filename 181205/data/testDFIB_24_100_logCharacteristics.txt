@@ -1,0 +1,48 @@
+Finite Volume Method for 3D flow
+
+Variable            Values
+
+velScheme           quick
+ny                  28
+nx                  28
+nz                  28
+ghostCells          4
+nSubGrids           100
+
+Re                  100
+
+omega               1.2
+maxTimesteps        1000000
+maxPrIters          1000
+uResidual           1e-12
+vResidual           1e-12
+wResidual           1e-12
+pResidual           1e-08
+dt                  0.0001
+numOfThreads        4
+
+L                   1
+B                   1
+H                   1
+uIn                 1
+vIn                 0
+wIn                 0
+uInitial            0
+vInitial            0
+wInitial            0
+pInitial            0
+
+fileUniqueName      testDFIB_24_100
+Comments            Testing development of DFIB step by step; velocity corrected
+
+
+Case completion data
+
+Max. mass residual  3.30841e-06
+Max. pr. residual   2.61152e-10
+Max. change in u    9.99895e-13
+Max. change in v    9.94427e-13
+Max. change in w    7.48432e-13
+tPrConvrg           4			// 1st timestep when pIter < maxPrIters
+Final timestep      150532
+Running time        10 min

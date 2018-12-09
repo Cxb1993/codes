@@ -1,0 +1,341 @@
+PWD D:/PhD/Codes/170927/report
+INPUT C:/Users/Ahmad/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt
+INPUT report170927.tex
+OUTPUT report170927.log
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/article.cls
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/article.cls
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/fleqn.clo
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/fleqn.clo
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/size12.clo
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/size12.clo
+INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/public/cm/cmr12.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/mathtools/mathtools.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/mathtools/mathtools.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/keyval.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/keyval.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/tools/calc.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/tools/calc.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/mathtools/mhsetup.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/mathtools/mhsetup.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsmath.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsmath.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amstext.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amstext.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsgen.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsgen.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsbsy.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsbsy.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsopn.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsopn.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphicx.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphicx.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphics.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphics.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/trig.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/trig.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/graphics.cfg
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/graphics.cfg
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics-def/pdftex.def
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics-def/pdftex.def
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/infwarerr.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/infwarerr.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ltxcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ltxcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/color.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics/color.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/color.cfg
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/color.cfg
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/enumitem/enumitem.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/enumitem/enumitem.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/newtxtext.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/newtxtext.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/fontaxes/fontaxes.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/fontaxes/fontaxes.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/xkeyval/xkeyval.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/xkeyval/xkeyval.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/xkeyval/xkeyval.tex
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/xkeyval/xkvutils.tex
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/etoolbox/etoolbox.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/etoolbox/etoolbox.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/fontenc.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/fontenc.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/t1enc.def
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/t1enc.def
+INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecrm1200.tfm
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/textcomp.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/textcomp.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1enc.def
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1enc.def
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/newtxmath.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/newtxmath.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/ifxetex/ifxetex.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/ifxetex/ifxetex.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifluatex.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifluatex.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/generic/binhex/binhex.tex
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/generic/binhex/binhex.tex
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/t1ntxtlf.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/t1ntxtlf.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
+INPUT report170927.aux
+INPUT report170927.aux
+OUTPUT report170927.aux
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/omlntxmi.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/omlntxmi.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxexa.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxexa.fd
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1cmr.fd
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1cmr.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/lmsntxsy.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/lmsntxsy.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/lmxntxexx.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/lmxntxexx.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/context/base/supp-pdf.mkii
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/context/base/supp-pdf.mkii
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/pdftexcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/pdftexcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifpdf.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifpdf.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/grfext.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/grfext.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/kvdefinekeys.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/kvdefinekeys.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/kvoptions.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/kvoptions.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/kvsetkeys.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/kvsetkeys.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/etexcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/etexcmds.sty
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/ot1ntxtlf.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/ot1ntxtlf.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmi7.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsy.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsy.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsy7.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexx.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexx.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexx.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxmia.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxmia.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxsym.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxsym.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsym.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsym.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsym.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxsyc.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/untxsyc.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
+INPUT report170927.toc
+INPUT report170927.toc
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmi7.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsy.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsy.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsy7.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexx.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexx.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexx.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsym.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsym.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsym.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexa.tfm
+OUTPUT report170927.toc
+OUTPUT report170927.pdf
+INPUT C:/Users/Ahmad/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Bold-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Bold-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Bold-tlf-ot1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Italic-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxsy.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/txsys.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/txex-bar.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxmia.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyralt.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txr.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexb.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/rtxmio.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txsyb.tfm
+INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/boondox/zxxrl7z.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/txfonts/txr.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxptmr.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxr.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxmi.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/rntxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/txfonts/txmi.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxptmri.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxsy.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/txsys.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/txex-bar.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxmi.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/rntxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/txfonts/txmi.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxmi.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxptmri.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxmia.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txmia.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxsyralt.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txsyc.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txr.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntxexb.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/rtxmio.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/txsyb.tfm
+INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/boondox/zxxrl7z.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/txfonts/txr.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxptmr.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/txfonts/rtxr.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/vf/public/newtx/ntxexx.vf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/txexs.tfm
+INPUT staggered_grid.png
+INPUT ./staggered_grid.png
+INPUT ./staggered_grid.png
+INPUT ./staggered_grid.png
+INPUT ./staggered_grid.png
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
+INPUT boundary_conditions.eps
+INPUT ./boundary_conditions.eps
+INPUT ./boundary_conditions.eps
+INPUT ./boundary_conditions-eps-converted-to.pdf
+INPUT ./boundary_conditions-eps-converted-to.pdf
+INPUT ./boundary_conditions.eps
+INPUT ./boundary_conditions-eps-converted-to.pdf
+INPUT ./boundary_conditions-eps-converted-to.pdf
+INPUT ./boundary_conditions-eps-converted-to.pdf
+INPUT ./boundary_conditions-eps-converted-to.pdf
+INPUT navierFVD-UvelocityContours.eps
+INPUT ./navierFVD-UvelocityContours.eps
+INPUT ./navierFVD-UvelocityContours.eps
+INPUT ./navierFVD-UvelocityContours-eps-converted-to.pdf
+INPUT ./navierFVD-UvelocityContours-eps-converted-to.pdf
+INPUT ./navierFVD-UvelocityContours.eps
+INPUT ./navierFVD-UvelocityContours-eps-converted-to.pdf
+INPUT ./navierFVD-UvelocityContours-eps-converted-to.pdf
+INPUT ./navierFVD-UvelocityContours-eps-converted-to.pdf
+INPUT ./navierFVD-UvelocityContours-eps-converted-to.pdf
+INPUT navierFVD-velocityVectors.eps
+INPUT ./navierFVD-velocityVectors.eps
+INPUT ./navierFVD-velocityVectors.eps
+INPUT ./navierFVD-velocityVectors-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors.eps
+INPUT ./navierFVD-velocityVectors-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-eps-converted-to.pdf
+INPUT navierFVD-pressureContours.eps
+INPUT ./navierFVD-pressureContours.eps
+INPUT ./navierFVD-pressureContours.eps
+INPUT ./navierFVD-pressureContours-eps-converted-to.pdf
+INPUT ./navierFVD-pressureContours-eps-converted-to.pdf
+INPUT ./navierFVD-pressureContours.eps
+INPUT ./navierFVD-pressureContours-eps-converted-to.pdf
+INPUT ./navierFVD-pressureContours-eps-converted-to.pdf
+INPUT ./navierFVD-pressureContours-eps-converted-to.pdf
+INPUT ./navierFVD-pressureContours-eps-converted-to.pdf
+INPUT l2_norm_grids.png
+INPUT ./l2_norm_grids.png
+INPUT ./l2_norm_grids.png
+INPUT ./l2_norm_grids.png
+INPUT ./l2_norm_grids.png
+INPUT navierFVD-velocityVectors-couette-poiseuille01.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille01-eps-converted-to.pdf
+INPUT navierFVD-velocityVectors-couette-poiseuille02.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02.eps
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02-eps-converted-to.pdf
+INPUT ./navierFVD-velocityVectors-couette-poiseuille02-eps-converted-to.pdf
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/ts1ntxtlf.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/tex/latex/newtx/ts1ntxtlf.fd
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/tex-gyre/ts1-qtmr.tfm
+INPUT report170927.aux
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/tex-gyre/q-ts1.enc
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/newtx/ntx-ec-tlf.enc
+INPUT C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gyre/qtmb.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gyre/qtmb.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gyre/qtmr.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gyre/qtmr.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gyre/qtmri.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gyre/qtmri.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/rntxmi.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/rntxmi.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/txfonts/rtxmi.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/txfonts/rtxmi.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/txfonts/rtxr.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/txfonts/rtxr.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/txexs.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/txexs.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/txfonts/txmia.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/txfonts/txmia.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/txsys.pfb
+INPUT C:/Users/Ahmad/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/txsys.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
+INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb

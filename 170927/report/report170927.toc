@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Solution of Navier-Stokes equations using Finite Volume Method}{2}
+\contentsline {subsection}{\numberline {1.1}Projection method}{2}
+\contentsline {subsection}{\numberline {1.2}Discretization of the convective and diffusive terms}{2}
+\contentsline {subsubsection}{\numberline {1.2.1}Substitutions for velocities in the convective terms}{3}
+\contentsline {paragraph}{Upwind scheme}{4}
+\contentsline {paragraph}{Central scheme}{4}
+\contentsline {paragraph}{QUICK scheme}{4}
+\contentsline {subsubsection}{\numberline {1.2.2}Euler scheme for first time step}{5}
+\contentsline {subsubsection}{\numberline {1.2.3}Adams-Bashforth scheme}{5}
+\contentsline {subsection}{\numberline {1.3}Poisson equation of pressure}{6}
+\contentsline {subsection}{\numberline {1.4}Cases}{7}
+\contentsline {subsubsection}{\numberline {1.4.1}Boundary conditions}{7}
+\contentsline {subsubsection}{\numberline {1.4.2}Initial conditions}{8}
+\contentsline {subsection}{\numberline {1.5}Results}{9}
+\contentsline {subsubsection}{\numberline {1.5.1}Case 1: Plane Poiseuille flow}{9}
+\contentsline {subsubsection}{\numberline {1.5.2}Case 2: Couette-Poiseuille flow with one surface moving}{13}
+\contentsline {subsubsection}{\numberline {1.5.3}Case 3: Couette-Poiseuille flow with both surfaces moving in opposite directions}{14}
+\contentsline {subsection}{\numberline {1.6}Pending cases}{15}
+\contentsline {subsection}{\numberline {1.7}Future work}{15}

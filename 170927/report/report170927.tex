@@ -1,0 +1,435 @@
+\documentclass[12pt,a4paper,fleqn]{article}
+\title{Progress Report}
+\author{Syed Ahmad Raza}
+\date{2017.10.25}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}          % for color eps output
+% \usepackage{afterpage}
+\usepackage{float}          % to force a figure placement with [H] command
+\usepackage{enumitem}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+%\usepackage{layouts}       % for: \printinunitsof{in}\prntlen{\textwidth}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Solution of Navier-Stokes equations using Finite Volume Method}
+
+Continuity equation is
+\begin{equation}\label{eq:continuity}
+\nabla \cdot \mathbf{u} = 0 \quad,
+\end{equation}
+and Navier-Stokes equation is
+\begin{equation}\label{eq:navier-stokes}
+\frac{\partial \mathbf{u}}{\partial t}+\nabla \cdot (\mathbf{u}\mathbf{u}) = -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{u}+\mathbf{f} \quad.
+\end{equation}
+where $\mathbf{u}$ is the velocity vector, \textit{p} is the pressure, $\rho$ is density of the fluid, and $\mathbf{f}$ is body force per unit mass.
+
+Ignoring the body force $\mathbf{f}$, we are left with
+\begin{equation}\label{eq:navier-stokes-no-f}
+\frac {\partial \mathbf{u}}{\partial t} = -\frac{1}{\rho}\nabla p -\nabla \cdot (\mathbf{uu}) + \nu \nabla^2 \mathbf{u} \quad.
+\end{equation}
+
+\subsection{Projection method}
+Using a new vector $\mathbf{u}^*$ for intermediate velocity and \textit{n} as the index for time step, projection method is used to decompose Navier-Stokes equation in \eqref{eq:navier-stokes-no-f} into two parts,
+\begin{equation}\label{eq:projection01}
+\frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = -\nabla \cdot (\mathbf{u}\mathbf{u})+ \nu \nabla^2 \mathbf{u} \quad,
+\end{equation}
+which accounts for the convective and diffusive terms, and
+\begin{equation}\label{eq:projection02}
+\frac{\mathbf{u}^{n+1}-\mathbf{u}^*}{\Delta t}=-\frac{1}{\rho}\nabla p \quad,
+\end{equation}
+which accounts for the pressure term.
+
+\subsection{Discretization of the convective and diffusive terms}
+The convective and diffusive terms from equation \eqref{eq:projection01} can be discretized using the individual components. For the $u$-component, equation \eqref{eq:projection01} can be written as
+\begin{equation} \label{eq:convective-diffusive-u}
+\frac{\partial u}{\partial t} = -\frac{\partial uu}{\partial x} -\frac{\partial uv}{\partial y} + \nu\left[\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2}\right] \quad,
+\end{equation}
+which can be discretized as
+\begin{align}\label{eq:discretized_convective-diffusive-u}
+\frac{\partial u}{\partial t} =
+{}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y} + \nu\left[
+\left\{
+\frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+- \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+\right\}
+\frac{1}{\Delta x}
+\right.\nonumber\\
+& \left. + \left\{
+\frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+- \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+\right\}
+\frac{1}{\Delta y}
+\right] \quad ,
+\end{align}
+where, for the \emph{diffusion terms}, second-order central scheme has been used. Similarly for the $v$-component, equation \eqref{eq:projection01} will be
+\begin{equation} \label{eq:convective-diffusive-v}
+\frac{\partial v}{\partial t} = -\frac{\partial uv}{\partial x} -\frac{\partial vv}{\partial y} + \nu\left[\frac{\partial^2v}{\partial x^2} + \frac{\partial^2v}{\partial y^2}\right] \quad ,
+\end{equation}
+which can be and discretized as
+\begin{align}\label{eq:discretized_convective-diffusive-v}
+\frac{\partial v}{\partial t} =
+{}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} \nonumber\\
+& + \nu\left[
+\left\{
+\frac{v_{i+1,j}-v_{i,j}}{(x_{i+2}-x_i)/2}
+- \frac{v_{i,j}-v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+\right\}
+\frac{1}{\Delta x}
+\right.\nonumber\\
+& \left. + \left\{
+\frac{v_{i,j+1}-v_{i,j}}{y_{j+2}-y_{j+1}}
+- \frac{v_{i,j}-v_{i,j-1}}{y_{j+1}-y_{j}}
+\right\}
+\frac{1}{\Delta y}
+\right] \quad .
+\end{align}
+
+\subsubsection{Substitutions for velocities in the convective terms}
+A simple mean is used for the velocities $u_n, u_s, v_e$ and $v_w$,
+\begin{equation*}
+\begin{aligned}
+u_n &= u_{i,j} + \frac{u_{i,j+1} - u_{i,j}}{(y_{j+2}-y_j)/2}\\
+u_s &= u_{i,j} - \frac{u_{i,j} - u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+v_e &= v_{i,j} + \frac{v_{i+1,j} - v_{i,j}}{(x_{i+2}-x_i)/2}\\
+v_w &= v_{i,j} - \frac{v_{i,j} - v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+\end{aligned}
+\end{equation*}
+
+For rest of the velocities in the convective terms, namely $u_e, u_w, v_n$ and $v_s$, the following three schemes were used:
+\begin{enumerate}
+\setlength\itemsep{0em}
+\item Upwind scheme
+\item Central difference scheme
+\item Quadratic Upwind Interpolation for Convective Kinematics (QUICK)
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{staggered_grid.png}
+  \caption{Visual representation of the staggered grid used for discretization in Finite Volume Method}
+  \label{fig:staggered-grid}
+\end{figure}
+
+\paragraph{Upwind scheme}\mbox{}\\
+For positive velocities,
+\begin{equation*}
+\begin{aligned}
+u_e = u_{i,j}\\
+u_w = u_{i-1,j}
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+v_n = v_{i,j}\\
+v_s = v_{i,j-1}
+\end{aligned}
+\end{equation*}
+For negative velocities,
+\begin{equation*}
+\begin{aligned}
+u_e = u_{i+1,j}\\
+u_w = u_{i,j}
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+v_n = v_{i,j+1}\\
+v_s = v_{i,j}
+\end{aligned}
+\end{equation*}
+
+\paragraph{Central scheme}
+\begin{equation*}
+\begin{aligned}
+u_e = \frac{u_{i,j} + u_{i+1,j}}{2}\\
+u_w = \frac{u_{i-1,j} + u_{i+1,j}}{2}
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+v_n = \frac{v_{i,j} + v_{i,j+1}}{2}\\
+v_s = \frac{v_{i,j-1} + v_{i,j}}{2}
+\end{aligned}
+\end{equation*}
+
+\paragraph{QUICK scheme}\mbox{}\\
+For positive velocities,
+\begin{equation*}
+\begin{aligned}
+u_e = \tfrac{6}{8}u_{i,j} + \tfrac{3}{8}u_{i+1,j} - \tfrac{1}{8}u_{i-1,j}\\
+u_w = \tfrac{6}{8}u_{i-1,j} + \tfrac{3}{8}u_{i,j} - \tfrac{1}{8}u_{i-2,j}
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+v_n = \tfrac{6}{8}v_{i,j} + \tfrac{3}{8}v_{i,j+1} - \tfrac{1}{8}v_{i,j-1}\\
+v_s = \tfrac{6}{8}v_{i,j-1} + \tfrac{3}{8}v_{i,j} - \tfrac{1}{8}v_{i,j-2}
+\end{aligned}
+\end{equation*}
+For negative velocities,
+\begin{equation*}
+\begin{aligned}
+u_e = \tfrac{6}{8}u_{i+1,j} + \tfrac{3}{8}u_{i,j} - \tfrac{1}{8}u_{i+2,j}\\
+u_w = \tfrac{6}{8}u_{i,j} + \tfrac{3}{8}u_{i-1,j} - \tfrac{1}{8}u_{i+1,j}
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+v_n = \tfrac{6}{8}v_{i,j+1} + \tfrac{3}{8}v_{i,j} - \tfrac{1}{8}v_{i,j+2}\\
+v_s = \tfrac{6}{8}v_{i,j} + \tfrac{3}{8}v_{i,j-1} - \tfrac{1}{8}v_{i,j+1}
+\end{aligned}
+\end{equation*}
+
+\subsubsection{Euler scheme for first time step}
+For the first time step, the Euler scheme is adopted for the intermediate velocity using
+\begin{align}
+\frac{u^*_{i,j}-u^{}_{i,j}}{\Delta t} =
+{}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y}
+\nonumber \\
+& + \nu\left[
+\left\{
+\frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+- \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+\right\}
+\frac{1}{\Delta x}
+\right.
+\nonumber\\
+& \left. + \left\{
+\frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+- \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+\right\}
+\frac{1}{\Delta y}
+\right] \quad ,
+\label{eq:Euler-u}
+\end{align}
+and
+\begin{align}
+\frac{v^*_{i,j}-v^{}_{i,j}}{\Delta t} =
+{}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} \nonumber\\
+& + \nu\left[
+\left\{
+\frac{v_{i+1,j}-v_{i,j}}{(x_{i+2}-x_i)/2}
+- \frac{v_{i,j}-v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+\right\}
+\frac{1}{\Delta x}
+\right.\nonumber\\
+& \left. + \left\{
+\frac{v_{i,j+1}-v_{i,j}}{y_{j+2}-y_{j+1}}
+- \frac{v_{i,j}-v_{i,j-1}}{y_{j+1}-y_{j}}
+\right\}
+\frac{1}{\Delta y}
+\right] \quad .
+\label{eq:Euler-v}
+\end{align}
+
+\subsubsection{Adams-Bashforth scheme}
+Denoting the terms on the right-hand side of equation \eqref{eq:projection01} with $\mathcal{F}(\mathbf{u})$, the second order Adams-Bashforth scheme can be applied using
+\begin{equation}\label{eq:adams-bashforth}
+\frac{\mathbf{u}^*-\mathbf{u}^n}{\Delta t} = \frac{3}{2}\mathcal{F}(\mathbf{u}^n)-\frac{1}{2}\mathcal{F}(\mathbf{u}^{n-1})\quad .
+\end{equation}
+For a 2D problem, the discretized equations can be written as
+\begin{align}
+\mathcal{F}(u_{i,j}^n) = {}& - \frac{u_e^2 - u_w^2}{\Delta x} - \frac{u_n v_n - u_s v_s}{\Delta y} + \nu\left[
+\left\{
+\frac{u_{i+1,j}-u_{i,j}}{x_{i+2}-x_{i+1}}
+- \frac{u_{i,j}-u_{i-1,j}}{x_{i+1}-x_i}
+\right\}
+\frac{1}{\Delta x}
+\right.\nonumber\\
+& \left. + \left\{
+\frac{u_{i,j+1}-u_{i,j}}{(y_{j+2}-y_j)/2}
+- \frac{u_{i,j}-u_{i,j-1}}{(y_{j+1}-y_{j-1})/2}
+\right\}
+\frac{1}{\Delta y}
+\right] \quad ,
+\label{eq:Fu}
+\end{align}
+and
+\begin{align}
+\mathcal{F}(v_{i,j}^n) = {}& - \frac{u_e v_e - u_w v_w}{\Delta x} - \frac{v_n^2 - v_s^2}{\Delta y} \nonumber\\
+& + \nu\left[
+\left\{
+\frac{v_{i+1,j}-v_{i,j}}{(x_{i+2}-x_i)/2}
+- \frac{v_{i,j}-v_{i-1,j}}{(x_{i+1}-x_{i-1})/2}
+\right\}
+\frac{1}{\Delta x}
+\right.\nonumber\\
+& \left. + \left\{
+\frac{v_{i,j+1}-v_{i,j}}{y_{j+2}-y_{j+1}}
+- \frac{v_{i,j}-v_{i,j-1}}{y_{j+1}-y_{j}}
+\right\}
+\frac{1}{\Delta y}
+\right] \quad .
+\label{eq:Fv}
+\end{align}
+Then, the intermediate velocities will be
+\begin{eqnarray}
+\frac{u^*_{i,j} - u^{}_{i,j}}{\Delta t} = \frac{3}{2}\mathcal{F}(u_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(u_{i,j}^{n}) \\
+\frac{v^*_{i,j} - v^{}_{i,j}}{\Delta t} = \frac{3}{2}\mathcal{F}(v_{i,j}^{n+1}) - \frac{1}{2}\mathcal{F}(v_{i,j}^{n})
+\end{eqnarray}
+
+\subsection{Poisson equation of pressure}
+Using the conservation of mass principle for the $n+1^{\text{st}}$ time step,
+\begin{equation} \label{eq:continuity-n+1}
+\nabla \cdot \mathbf{u}^{n+1} = 0 \quad ,
+\end{equation}
+and substituting equation \eqref{eq:projection02}, we get the Poisson equation for pressure
+\begin{equation} \label{eq:poisson}
+\nabla^2 p^{n+1} = \frac{\rho}{\Delta t}\nabla \cdot \mathbf{u}^* \quad ,
+\end{equation}
+which can be written as
+\begin{equation} \label{eq:poisson-components}
+\frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2}
+= \frac{1}{\Delta t} \left(\frac{\partial u^*}{\partial x} + \frac{\partial v^*}{\partial y}\right) \quad .
+\end{equation}
+Integrating it twice, discretizing and rearranging leads to
+\begin{align}
+p_{i,j}^{n+1} =
+&\frac{1}{\left[ - \frac{Dy}{Dx1} - \frac{Dy}{Dx2} - \frac{Dx}{Dy1} - \frac{Dx}{Dy2} \right]}
+\nonumber \\
+&\times
+\left[
+- \frac{Dy}{Dx1}p_{i+1,j} - \frac{Dy}{Dx2}p_{i-1,j} - \frac{Dx}{Dy1}p_{i,j+1} - \frac{Dx}{Dy2}p_{i,j-1}
+\right. \nonumber \\
+&\left.
++ \frac{1}{\Delta t}\left\{
+\left(u^*_{i,j}-u^*_{i-1,j}\right) \Delta y
++ \left(v^*_{i,j}-v^*_{i,j-1}\right) \Delta x
+\right\}
+\right]
+\quad .
+\end{align}
+Using successive over-relaxation method (SOR),
+\begin{align}
+p_{i,j}^{n+1} =& \left(1 - \omega\right)p_{i,j} + \omega
+\Bigg[
+\frac{1}{\left( - \frac{Dy}{Dx1} - \frac{Dy}{Dx2} - \frac{Dx}{Dy1} - \frac{Dx}{Dy2} \right)}
+\nonumber \\
+&\times
+\left\{
+- \frac{Dy}{Dx1}p_{i+1,j} - \frac{Dy}{Dx2}p_{i-1,j} - \frac{Dx}{Dy1}p_{i,j+1} - \frac{Dx}{Dy2}p_{i,j-1}
+\right. \nonumber \\
+&\left.
++ \frac{1}{\Delta t}\left(
+\big(u^*_{i,j}-u^*_{i-1,j}\big) \Delta y
++ \big(v^*_{i,j}-v^*_{i,j-1}\big) \Delta x
+\right)
+\right\}
+\Bigg]
+\quad ,
+\end{align}
+where the relaxation factor, $\omega = 1.8$.
+Finally, the correct velocity can be found using
+\begin{equation}
+\mathbf{u}^{n+1} = \mathbf{u}^* - \frac{\Delta t}{\rho}\cdot \nabla p^{n+1} \quad ,
+\end{equation}
+which is, for $u$- and $v$-components,
+\begin{equation}
+u^{n+1}_{i,j} = u^*_{i,j} - \frac{\Delta t}{\rho}\cdot \frac{p_{i+1,j}^{n+1} - p_{i,j}^{n+1}}{\Delta x}
+\end{equation}
+and
+\begin{equation}
+v^{n+1}_{i,j} = v^*_{i,j} - \frac{\Delta t}{\rho}\cdot \frac{p_{i,j+1}^{n+1} - p_{i,j}^{n+1}}{\Delta y}
+\end{equation}
+
+\subsection{Cases}
+The following cases of 2D laminar duct flow were studied:
+\begin{enumerate}
+% \setlength\itemsep{0em}
+\item \emph{Plane Poiseuille flow}: both the upper and lower surfaces are stationary with fluid entering from the left and exiting at the right
+\item \emph{Couette-Poiseuille flow}: the upper surface is moving right and the bottom surface is stationary, with flow moving from left to right
+\item \emph{Couette-Poiseuille flow}: the upper surface is moving right and the bottom surface is moving left, with flow moving from left to right
+\end{enumerate}
+
+\subsubsection{Boundary conditions}
+In order to model 2D flow in a cylindrical pipe, appropriate boundary condtions were selected as described in figure \ref{fig:boundary-conditions}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{boundary_conditions.eps}
+  \caption{Velocity and pressure boundary conditions at each boundary of the domain are labeled.}
+  \label{fig:boundary-conditions}
+\end{figure}
+
+\subsubsection{Initial conditions}
+The following initial conditions were utilized:
+\begin{enumerate}
+\setlength\itemsep{0em}
+\item $u_{i,j} = u_\text{inlet}$
+\item $v_{i,j} = 0$
+\item $p_{i,j} = \text{constant}$
+\item The values of constants have been selected such that $\text{Re}= 10$.
+\end{enumerate}
+
+\subsection{Results}
+\subsubsection{Case 1: Plane Poiseuille flow}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{navierFVD-UvelocityContours.eps}
+  \caption{$u$-velocity contours in the computational domain at various time steps during the numerical solution for Plane Poiseuille flow using QUICK scheme and $n_y = 110$}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{navierFVD-velocityVectors.eps}
+  \caption{Velocity vectors at various time steps during the numerical solution for Plane Poiseuille flow using QUICK scheme and $n_y = 110$}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{navierFVD-pressureContours.eps}
+  \caption{Pressure contours at various time steps during the numerical solution for Plane Poiseuille flow using QUICK scheme and $n_y = 110$}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{l2_norm_grids.png}
+  \caption{Pressure contours at various time steps during the numerical solution for Plane Poiseuille flow using QUICK scheme and $n_y = 110$}
+\end{figure}
+
+\subsubsection{Case 2: Couette-Poiseuille flow with one surface moving}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{navierFVD-velocityVectors-couette-poiseuille01}
+  \caption{Velocity vectors at various time steps during the numerical solution for Couette-Poiseuille flow with one surface moving, using QUICK scheme and $n_y = 110$}
+\end{figure}
+
+\subsubsection{Case 3: Couette-Poiseuille flow with both surfaces moving in opposite directions}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{navierFVD-velocityVectors-couette-poiseuille02}
+  \caption{Velocity vectors at various time steps during the numerical solution for Couette-Poiseuille flow with both surfaces moving, using QUICK scheme and $n_y = 110$}
+\end{figure}
+\pagebreak
+
+\subsection{Pending cases}
+The following cases for larger grid sizes are still running. The table below lists the cases that have failed to converge and the currently running cases.
+
+\begin{table}[H]
+\caption{List of cases for $n_y=500$ that have been tested so far}
+\centering
+\begin{tabular}{|r|l|l|l|}
+\hline
+Case & Time step & Max. pressure iterations & Status\\
+\hline
+\noalign{\smallskip}
+1	& $1\times10^{-5}$	& 2000 & Failed\\
+2	& $1\times10^{-5}$	& 10 & Failed\\
+3	& $1\times10^{-6}$	& 10 & Failed\\
+4	& $1\times10^{-7}$	& 10 & Failed\\
+5	& $1\times10^{-7}$	& 100 & Failed\\
+6	& $1\times10^{-8}$	& 10 & Running\\
+\hline
+\end{tabular}
+
+\label{table:pending-cases}
+\end{table}
+
+
+\subsection{Future work}
+\begin{itemize}
+\item Solve energy equation for heat transfer
+\item Solve for 3D domain
+\end{itemize}
+
+\end{document}

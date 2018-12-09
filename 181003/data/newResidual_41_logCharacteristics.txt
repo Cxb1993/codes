@@ -1,0 +1,50 @@
+Finite Volume Method for 3D flow
+
+Variable            Values
+
+velScheme           quick
+ny                  45
+nx                  45
+nz                  45
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        1000000
+maxPrIters          1000
+uResidual           1e-08
+vResidual           1e-08
+wResidual           1e-08
+pResidual           1e-08
+dt                  0.0001 s
+numOfThreads        20
+
+x_y_ratio           1
+x_z_ratio           1
+L                   1 m
+B                   1 m
+H                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+wInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      newResidual
+Comments            Testing with reduced residual for u, v and w velocities
+
+
+Case completion data
+
+Max. mass residual  2.72304e-06
+Max. pr. residual   3.59403e-09
+Max. change in u    9.99954e-09
+Max. change in v    8.76745e-09
+Max. change in w    3.48044e-09
+tPrConvrg           841			// 1st timestep when pIter < maxPrIters
+Final timestep      107521
+Running time        32 min

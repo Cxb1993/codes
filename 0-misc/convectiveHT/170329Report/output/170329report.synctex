@@ -1,0 +1,194 @@
+SyncTeX Version:1
+Input:1:D:\PhD\Codes\0 Misc\ConvectiveHT\170329Report\170329report.tex
+Input:2:C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls
+Input:3:C:\Program Files\MiKTeX 2.9\tex\latex\base\fleqn.clo
+Input:4:C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo
+Input:5:C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty
+Input:6:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+Input:7:C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty
+Input:8:C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty
+Input:9:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+Input:10:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+Input:11:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+Input:12:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+Input:13:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+Input:14:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+Input:15:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+Input:16:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+Input:17:C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg
+Input:18:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+Input:19:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty
+Input:20:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty
+Input:21:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty
+Input:22:C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg
+Input:23:C:\Program Files\MiKTeX 2.9\tex\latex\tools\afterpage.sty
+Input:24:C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+Input:25:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
+Input:26:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty
+Input:27:C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+Input:28:C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+Input:29:C:\Program Files\MiKTeX 2.9\tex\latex\layouts\layouts.sty
+Input:30:D:\PhD\Codes\0 Misc\ConvectiveHT\170329Report\170329report.aux
+Input:31:C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
+Input:32:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty
+Input:33:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty
+Input:34:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
+Input:35:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
+Input:36:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty
+Input:37:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+Input:38:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty
+Input:39:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty
+Output:pdf
+Magnification:1000
+Unit:1
+X Offset:0
+Y Offset:0
+Content:
+!2747
+{1
+[1,26:4736286,54978927:32053847,50242641,0
+[1,26:2368143,54978927:34421990,55035616,0
+[1,26:2368143,729743:34421990,786432,0
+(1,26:2368143,729743:34421990,0,0
+h1,26:2368143,729743:34421990,0,0
+)
+]
+[1,26:2368143,53012847:34421990,50644704,0
+h1,16:2368143,3154575:0,0,0
+(1,16:2368143,6333055:34421990,943900,0
+k1,16:10510028,6333055:8141885
+(1,16:10510028,6333055:0,0,0
+g1,16:10510028,6333055
+g1,16:10510028,6333055
+g1,16:10125008,6333055
+(1,16:10125008,6333055:0,0,0
+)
+g1,16:10510028,6333055
+)
+x1,16:12735164,6333055
+x1,16:13358525,6333055
+x1,16:15907247,6333055
+x1,16:16424092,6333055
+g1,16:16834422,6333055
+x1,16:19433838,6333055
+g1,16:19844168,6333055
+x1,16:20751571,6333055
+x1,16:24341086,6333055
+g1,16:24751416,6333055
+x1,16:26991196,6333055
+g1,16:27401526,6333055
+x1,16:28648248,6333055
+g1,16:28648248,6333055
+k1,16:36790133,6333055:8141885
+)
+(1,16:2368143,8667763:34421990,825750,353898
+k1,16:15445063,8667763:13076920
+h1,16:15445063,8667763:0,0,0
+(1,16:15445063,8667763:8268150,825750,353898
+$1,16:15445063,8667763
+[1,16:15445063,8667763:8268150,825750,353898
+(1,16:15445063,8667763:8268150,825750,353898
+g1,16:15445063,8667763
+(1,16:15445063,8667763:8268150,825750,353898
+r1,16:15445063,8667763:0,1179648,353898
+g1,16:15838279,8667763
+g1,16:15838279,8667763
+x1,16:16839329,8667763
+x1,16:17737707,8667763
+g1,16:18045722,8667763
+x1,16:20997211,8667763
+g1,16:21305226,8667763
+x1,16:23319997,8667763
+g1,16:23319997,8667763
+g1,16:23713213,8667763
+)
+g1,16:23713213,8667763
+)
+]
+$1,16:23713213,8667763
+)
+g1,16:23713213,8667763
+k1,16:36790133,8667763:13076920
+)
+(1,16:2368143,10465410:34421990,608173,0
+k1,16:17474367,10465410:15106224
+h1,16:17474367,10465410:0,0,0
+x1,16:21683909,10465410
+g1,16:21683909,10465410
+k1,16:36790133,10465410:15106224
+)
+(1,20:2368143,13652086:34421990,655359,0
+k1,20:14535551,13652086:12167408
+h1,19:14535551,13652086:0,0,0
+x1,19:16190970,13652086
+g1,19:16498985,13652086
+x1,19:17012344,13652086
+x1,19:18270074,13652086
+x1,19:18757765,13652086
+x1,19:19810149,13652086
+g1,19:20220835,13652086
+x1,19:24622725,13652086
+g1,20:24622725,13652086
+k1,20:36790133,13652086:12167408
+)
+]
+(1,26:2368143,54978927:34421990,506811,0
+(1,26:2368143,54978927:34421990,506811,0
+k1,26:19386627,54978927:17018484
+x1,26:19771647,54978927
+k1,26:36790131,54978927:17018484
+)
+)
+]
+]
+!2294
+}1
+!9
+{2
+[1,26:4736286,54978927:32053847,50242641,0
+[1,26:2368143,54978927:34421990,55035616,0
+[1,26:2368143,729743:34421990,786432,0
+(1,26:2368143,729743:34421990,0,0
+h1,26:2368143,729743:34421990,0,0
+)
+]
+[1,26:2368143,53012847:34421990,50644704,0
+[1,24:2368143,53012847:34421990,50644704,0
+[1,24:2368143,53013784:34421990,50645641,0
+(1,24:2368143,53013784:34421990,50645641,0
+k1,24:2368817,53013784:674
+h1,23:2368817,53013784:0,0,0
+(1,23:2368817,53013784:34420642,50645641,0
+(1,23:2368817,53013784:34420727,50645765,0
+(1,23:2368817,53013784:34420727,50645765,0
+(1,23:2368817,53013784:0,50717737,0
+(1,23:2368817,53013784:34469642,50717737,0
+)
+k1,23:2368819,53013784:-34469640
+)
+)
+)
+)
+g1,24:36789459,53013784
+k1,24:36790133,53013784:674
+)
+]
+]
+]
+(1,26:2368143,54978927:34421990,506811,0
+(1,26:2368143,54978927:34421990,506811,0
+k1,26:19386627,54978927:17018484
+x1,26:19771647,54978927
+k1,26:36790131,54978927:17018484
+)
+)
+]
+]
+!922
+}2
+Input:40:D:\PhD\Codes\0 Misc\ConvectiveHT\170329Report\170329report.aux
+!80
+Postamble:
+Count:110
+!25
+Post scriptum:

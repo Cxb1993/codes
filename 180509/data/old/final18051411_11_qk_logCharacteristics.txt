@@ -1,0 +1,42 @@
+Finite Volume Method for 2D flow
+
+Variable            Values
+
+velScheme           qk
+ny                  15
+nx                  15
+ghostCells          4
+
+Re                  100
+nu                  0.01
+rho                 1
+
+omega               1.2
+maxTimesteps        100000
+maxPressIters       1000
+uResidual           1e-12
+vResidual           1e-12
+pResidual           1e-08
+dt                  0.01 s
+
+x_y_ratio           1
+D                   1 m
+L                   1 m
+uIn                 1 m/s
+vIn                 0 m/s
+uInitial            0 m/s
+vInitial            0 m/s
+pInitial            0 Pa
+
+fileUniqueName      final18051411
+Comments            2D final version as on 2018-05-14 11.58 AM
+
+
+Case completion data
+
+Max. mass residual  0.00551536
+Max. pr. residual   2.29684e-13
+Max. change in u    9.96023e-13
+Max. change in v    9.56041e-13
+Final timestep      3952
+Running time        0 min
